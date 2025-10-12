@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografía - Darlyn Congo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1200x400/2c3e50/ffffff?text=Darlyn+Congo') no-repeat center center;
+            background-size: cover;
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .profile-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .profile-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 5px solid white;
+        }
+
+        .biography {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            border-radius: 3px;
+        }
+
+        .biography p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .timeline {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            border-left: 3px solid #3498db;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .achievement-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 50px 0;
+            padding: 30px;
+            border-left: 5px solid #3498db;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .content-wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Darlyn Congo</h1>
+        <p class="subtitle">Una vida dedicada al servicio y la excelencia</p>
+    </header>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="profile-image">
+                <img src="https://placehold.co/400x500/3498db/ffffff?text=Darlyn+Congo" alt="Darlyn Congo">
+            </div>
+            
+            <div class="biography">
+                <h2 class="section-title">Biografía</h2>
+            <p>Darlyn Congo nació y crecio en la ciudad de Ibarra, provincia de Imbabura. Sus estudios secundarios fueron en unidades educativas públicas y hasta su bachillerato en U.E Mariano Suarez Veintimilla            <p>Durante sus años de formación académica, se destacó por su excelencia intelectual y su participación activa en actividades extracurriculares relacionadas con el desarrollo social. Su vocación por la logística la impulsó por crear y llegar a las cadenas de suministro mas grandes del mundo.</p>
+                
+                <p>A lo largo de su carrera profesional, Darlyn ha ocupado posiciones de responsabilidad en organizaciones tanto públicas como privadas, siempre manteniendo su compromiso con la transparencia, la eficiencia y el bienestar colectivo. Su estilo de liderazgo se caracteriza por ser inclusivo y participativo.</p>
+                
+                <p>Además de su trabajo profesional, Darlyn es reconocida por su labor humanitaria y su constante búsqueda por mejorar las condiciones de vida de las comunidades más vulnerables. Cree firmemente en el poder del trabajo en equipo y la colaboración para lograr cambios significativos.</p>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <h2 class="section-title">Línea de Tiempo</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1985</div>
+                <div class="timeline-content">
+                    <h3>Nacimiento</h3>
+                    <p>Darlyn Congo nace en Ibarra, Imababura Ecuador, comenzando así una vida dedicada al servicio.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2003</div>
+                <div class="timeline-content">
+                    <h3>Inicios Académicos</h3>
+                    <p>Ingresa a la universidad para estudiar Logísstica y Transporte, destacando por su compromiso estudiantil.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2008</div>
+                <div class="timeline-content">
+                    <h3>Primeros Pasos Profesionales</h3>
+                    <p>Comienza su carrera en el sector público, trabajando en cadenas de suministro comunitarias.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <div class="timeline-content">
+                    <h3>Liderazgo Reconocido</h3>
+                    <p>Asciende a una posición directiva en una importante organización regional.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-content">
+                    <h3>Reconocimiento Nacional</h3>
+                    <p>Recibe destacadas participaciones en ponencias a lo largo de la carrera universitaria.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote">
+            "El verdadero liderazgo consiste en inspirar a otros a alcanzar su máximo potencial mientras se trabaja juntos por un propósito común."
+        </div>
+
+        <h2 class="section-title">Logros y Reconocimientos</h2>
+        <div class="achievements">
+            <div class="achievement-card">
+                <h3>Proyecto de investigación curricular</h3>
+                <p>Gestión de almacenamiento y control de inventario en la papelería Sari, Popular de la ciudad de Ibarra.</p>
+            </div>
+            
+            <div class="achievement-card">
+                <h3>Emprendimientos y CEO</h3>
+                <p>Creación de los emprendimientos @enp.roceso.ec y @orangeartesanal_ec.</p>
+            </div>
+            
+            <div class="achievement-card">
+                <h3>Mentoría </h3>
+                <p>Participación en diferentes progrmas de mentorías y ponencias a lo largo de su vida universitaria, además de cursos.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Biografía de Darlyn Congo. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
