@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Vida Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 300px;
+            background: linear-gradient(135deg, #008080, #006666);
+            color: white;
+            padding: 30px 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            display: block;
+        }
+
+        .name {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .section-title {
+            background-color: rgba(255,255,255,0.2);
+            padding: 12px 15px;
+            margin: 25px 0 15px 0;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info, .links-info {
+            padding: 0 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 8px 0;
+        }
+
+        .info-item i {
+            width: 25px;
+            margin-right: 12px;
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .info-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px dotted rgba(255,255,255,0.5);
+        }
+
+        .info-item a:hover {
+            color: #e0f7fa;
+            border-bottom: 1px solid #e0f7fa;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background-color: white;
+        }
+
+        .bio-section {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .bio-section h2 {
+            color: #008080;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #008080;
+            padding-bottom: 10px;
+        }
+
+        .bio-text {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .bio-text p {
+            margin-bottom: 15px;
+        }
+
+        .interests-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        .interests-list li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-header {
+            background-color: #008080;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .tabs {
+            display: flex;
+            background-color: #e0f2f1;
+            border-bottom: 1px solid #b2dfdb;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #b2dfdb;
+        }
+
+        .tab:last-child {
+            border-right: none;
+        }
+
+        .tab.active {
+            background-color: white;
+            color: #008080;
+        }
+
+        .tab:hover:not(.active) {
+            background-color: #b2dfdb;
+        }
+
+        .years-container {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+
+        .year-tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            border-right: 1px solid #eee;
+            font-weight: 500;
+        }
+
+        .year-tab.active {
+            background-color: #008080;
+            color: white;
+        }
+
+        .year-tab:hover:not(.active) {
+            background-color: #e0e0e0;
+        }
+
+        .content-container {
+            padding: 25px;
+        }
+
+        .project-card {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #008080;
+            transition: transform 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #008080;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .project-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #008080;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab {
+                flex: 1;
+                text-align: center;
+                min-width: 120px;
+            }
+
+            .years-container {
+                flex-wrap: wrap;
+            }
+
+            .year-tab {
+                flex: 1;
+                text-align: center;
+                min-width: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                padding: 15px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .tab, .year-tab {
+                padding: 12px 8px;
+                font-size: 14px;
+            }
+
+            .content-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img src="c:\Users\DARLYN\Downloads\img.jpg" alt="Foto de Perfil" class="profile-img">
+            <h1 class="name">Ing. Darlyn Congo</h1>
+
+            <div class="section-title">DATOS DE CONTACTO</div>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>darlyn.congo@upec.edu.ec</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+593 99 526 0428</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Quito, Ecuador</span>
+                </div>
+            </div>
+
+            <div class="section-title">LINKS EXTERNOS</div>
+            <div class="links-info">
+                <div class="info-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <a href="#">Hoja de Vida PDF</a>
+                </div>
+                <div class="info-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Biography Section -->
+            <div class="bio-section">
+                <h2>BIOGRAFÍA</h2>
+                <div class="bio-text">
+                    <p>Ingeniera en Logística y Transporte, de la Universidad Politécnica Estatal del Carchi, fuerte cadenas de suministro</p>
+                    <p>Actualmente desempeña el cargo como estudiante, pero con experiencia laboral de más de 5 años, iniciando con prácticas preprofesionales en la empresa Encomiendas Ecuador, dando paso por 6 años en un emprendimiento ibarreño, Minty.ec como recolección de guías, envíos nacionales, y manejo de inventario.</p>
+                    <p class="quote">"La logística no lo es todo, pero está en todo"</p>
+                    <p>Estudiante de logística, cursando el último nivel de la carrera, con experiencia necesaria para empredner y manejo de problemas en situaciones críticas</p>
+                </div>
+                
+                <h3>Intereses Profesionales:</h3>
+                <ol class="interests-list">
+                    <li>Cadenas de suministro</li>
+                    <li>Simulación en programas como Sketchup y Flexim</li>
+                    <li>Diseño asistido por computadora (Auto Cad, básico)</li>
+                    <li>Manejo de guías computarizadas</li>
+                    <li>Gestiones de Almacenamiento</li>
+                </ol>
+            </div>
+
+            <!-- Portfolio Section -->
+            <div class="portfolio-section">
+                <div class="portfolio-header">PORTAFOLIO DE PROYECTOS</div>
+                
+                <div class="tabs">
+                    <div class="tab" onclick="switchTab(this, 'investigacion')">PROYECTOS INVESTIGACIÓN</div>
+                    <div class="tab" onclick="switchTab(this, 'cursos')">Participación de cursos</div>
+                    <div class="tab" onclick="switchTab(this, 'colaboraciones')">PONENCIAS</div>
+                </div>
+
+                <div class="years-container">
+                    <div class="year-tab active" onclick="switchYear(this, '2023')">2023</div>
+                    <div class="year-tab" onclick="switchYear(this, '2024')">2024</div>
+                    <div class="year-tab" onclick="switchYear(this, '2025')">2025</div>
+                </div>
+
+                <div class="content-container">
+                    <!-- Participación de cursos 2023 -->
+                    <div id="consultoria-2023" class="tab-content active">
+                        <div class="project-card">
+                            <div class="project-title">Seguridad industrial</div>
+                            <div class="project-description">Capacitación de curso en Seguridad Industrial, implementos y medidas preventivas.</div>
+                            <div class="project-title">Curso en Python y Git hub</div>
+                            <div class="project-description">Programa en desarrollo de software y códigos en Python y Git hub.</div>
+                        </div>
+                    </div>
+
+                    <!-- Ponecias 2024 -->
+                    <div id="cursos-2023" class="tab-content" style="display:none">
+                        <div class="project-card">
+                            <div class="project-title">Café arabigo</div>
+                            <div class="project-description">Ponecia por parte de la carrera de logística y transporte en la Universidad Politécnica Estatal del Carchi, con tema Café Arábigo Ecuatoriano.</div>
+                        </div>
+                    </div>
+
+                    <!-- Proyectos de investigación 2025 -->
+                    <div id="colaboraciones-2023" class="tab-content" style="display:none">
+                        <div class="project-card">
+                            <div class="project-title">Gestión de almacenamiento y control de inventario en la Papelería Sari Popular, ciudad de Ibarra</div>
+                            <div class="project-description">Proyecto de finalización de carrera,como parte de investigación curricular.</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para cambiar entre tabs principales
+        function switchTab(element, tabName) {
+            // Remover clase active de todos los tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Agregar clase active al tab seleccionado
+            element.classList.add('active');
+            
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Mostrar contenido correspondiente al tab actual + año activo
+            const activeYear = document.querySelector('.year-tab.active').textContent;
+            const contentId = `${tabName}-${activeYear}`;
+            document.getElementById(contentId).style.display = 'block';
+        }
+
+        // Función para cambiar entre años
+        function switchYear(element, year) {
+            // Remover clase active de todos los años
+            document.querySelectorAll('.year-tab').forEach(yearTab => {
+                yearTab.classList.remove('active');
+            });
+            
+            // Agregar clase active al año seleccionado
+            element.classList.add('active');
+            
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Mostrar contenido correspondiente al año actual + tab activo
+            const activeTab = document.querySelector('.tab.active').textContent.toLowerCase().replace(/\s+/g, '');
+            // Normalizar nombres de tabs para IDs
+            let normalizedTab = activeTab;
+            if (normalizedTab === 'proyectosdeempresas') normalizedTab = 'consultoria';
+            if (normalizedTab === 'proyectosinvestigación') normalizedTab = 'investigacion';
+            
+            const contentId = `${normalizedTab}-${year}`;
+            document.getElementById(contentId).style.display = 'block';
+        }
+
+        // Inicializar con el primer contenido visible
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('protectosinvestigación').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
